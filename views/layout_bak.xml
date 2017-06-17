@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Customize header  -->
+        <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+
+          <!-- Assign an id  -->
+          <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+            <attribute name="id">my_header</attribute>
+          </xpath>
+
+          <!-- Add an element before the top menu  -->
+          <xpath expr="//div[@id='wrapwrap']/header/div" position="before">
+            <div class="container">
+              <div class="brand">Business Casual</div>
+              <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+            </div>
+          </xpath>
+        </template>
+
+
+        <template id="mystyle" name="My style" inherit_id="website.assets_frontend">
+            <xpath expr="link[last()]" position="after">
+                <link href="/casting_theme/static/src/css/style.css" rel="stylesheet" type="text/css"/>
+
+                <!-- Fonts -->
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+                <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"/>
+
+            </xpath>
+        </template>
+    </data>
+</odoo>

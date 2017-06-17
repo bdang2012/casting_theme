@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="mystyle" name="My style" inherit_id="website.assets_frontend">
+            <xpath expr="link[last()]" position="after">
+
+                <link href="/casting_theme/static/src/pintura_files/main.css" media="all" rel="stylesheet"/>
+		        <link href="/casting_theme/static/src/pintura_files/fonts.css" media="all" rel="stylesheet"/>
+		        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
+
+            </xpath>
+        </template>
+
+
+        <!-- Customize header  -->
+        <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+
+            <!-- Assign an id  -->
+            <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+                <attribute name="id">my_header</attribute>
+            </xpath>
+
+            <!-- Add an element after the top menu  -->
+            <!--
+            <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
+                <div class="container">
+                    <div class="alert alert-info mt16" role="alert">
+                        <strong>Welcome</strong> to  Pintura Casting!
+                    </div>
+                </div>
+            </xpath>
+            -->
+        </template>
+
+
+        <template id="template_casting_web_home" inherit_id="website.homepage">
+            <xpath expr="//div[@id='wrap']" position="replace">
+                <div class="row" style="background: #ffea00; height: 100%; margin: 0px;">
+			        <div class="col-md-6 socialimage white" style="margin: 0px;">
+                        <div class="center">
+                            <h2 class="upper"> One-Click Sign In </h2>
+                            Did you create your account with Facebook, Twitter or Google?
+                            <h3> Sign in Here: </h3>
+                            <div class="center upper">
+                                <a href="">
+                                <div class="login_btn" style="background: #de452d;">
+                                    <div class="login_icon" style="background: #ce351e;">
+                                        <i class="fa fa-google-plus fa-2x fa-fw white" style="margin-top: 10px;" title="Sign in with Google"></i>
+                                    </div>
+                                    <div class="login_description">
+                                        Sign In With Google
+                                    </div>
+                                </div> </a>
+                                <a href="">
+                                <div class="login_btn" style="background: #3a5499; ">
+                                    <div class="login_icon" style="background: #3B5998;">
+                                        <i class="fa fa-facebook fa-2x fa-fw white" style="margin-top: 10px;" title="Sign in with Facebook"></i>
+                                    </div>
+                                    <div class="login_description">
+                                        Sign In With Facebook
+                                    </div>
+                                </div> </a>
+                                <p></p>
+                                <a href="">
+                                <div class="login_btn" style="background: #44aee5; ">
+                                    <div class="login_icon" style="background: #3fa0d3;">
+                                        <i class="fa fa-twitter fa-2x fa-fw white" style="margin-top: 10px;" title="Sign in with Twitter"></i>
+                                    </div>
+                                    <div class="login_description">
+                                        Sign In With Twitter
+                                    </div>
+                                </div> </a>
+                            </div>
+                        </div>
+			        </div>
+			        <div class="col-md-6 white shieldimage" style="margin: 0px;">
+                        <div class="center">
+                            <h2 class="upper white"> Sign In With Your Email </h2>
+                            <p></p>
+                            Did you sign up without a social network?
+                            <h3> Sign in Here: </h3>
+                            <form accept-charset="UTF-8" action="" class="new_user" id="new_user" method="post">
+                                <div class="row">
+                                    <div class="col-sm-4 control-label">
+                                        Email
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" id="user_email" name="user[email]" type="email"/>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 control-label">
+                                        Password
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" id="user_password" name="user[password]" type="password"/>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-sm-2 col-sm-offset-4">
+                                            <input class="btn form-submit" id="shield_save" name="commit" value="Sign In" type="submit"/>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h5 class="yellow"></h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="smallish">
+                                                <p>
+                                                </p>
+                                                <p>
+                                                </p>
+
+                                                Not a member?
+                                                <a href="">Sign up</a>
+                                                <br/>
+
+                                                <a href="">Forgot your password?</a>
+                                                <br/>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+			        </div>
+		        </div>
+            </xpath>
+            <!--
+            <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                Binh: This homepage has been overwritten by an imported module !
+                <p>
+                    <a href="/page/test_module.test_page">Link to page added by imported module</a>
+                </p>
+            </div>
+
+        </t>
+        -->
+        </template>
+    </data>
+</odoo>
