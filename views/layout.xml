@@ -12,7 +12,6 @@
             </xpath>
         </template>
 
-
         <template id="template_casting_login_layout" inherit_id="web.login_layout" name="Template Casting Login Layout Inherit">
 
             <xpath expr="//t[@t-set='body_classname']" position="replace">
@@ -78,7 +77,7 @@
                         <div class="center">
                         <h2 class="upper white"> Sign In With Your Email </h2>
                         <p></p>
-                        Did you sign up without a social network?
+                        Did you sign in without a social network?
                         <h3> Sign in Here: </h3>
                         <form id='casting_login_form' role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
@@ -128,6 +127,122 @@
 
                                             Not a member?
                                             <a href="/web/signup">Sign up</a>
+                                            <br/>
+
+                                            <a href="">Forgot your password?</a>
+                                            <br/>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </xpath>
+
+        </template>
+
+        <template id="template_casting_web_home" inherit_id="website.homepage">
+
+        </template>
+
+        <template id="template_casting_web_signup" name="Template Casting Web Signup" inherit_id="auth_signup.signup">
+            <xpath expr="//form" position="replace">
+
+                    <div class="col-md-6 socialimage white" style="margin: 0px;">
+                        <div class="center">
+                            <h2 class="upper"> One-Click Sign In </h2>
+                            Did you create your account with Facebook, Twitter or Google?
+                            <h3> Sign in Here: </h3>
+                            <div class="center upper">
+                                <a href="">
+                                <div class="login_btn" style="background: #de452d;">
+                                    <div class="login_icon" style="background: #ce351e;">
+                                        <i class="fa fa-google-plus fa-2x fa-fw white" style="margin-top: 10px;" title="Sign in with Google"></i>
+                                    </div>
+                                    <div class="login_description">
+                                        Sign In With Google
+                                    </div>
+                                </div> </a>
+                                <a href="">
+                                <div class="login_btn" style="background: #3a5499; ">
+                                    <div class="login_icon" style="background: #3B5998;">
+                                        <i class="fa fa-facebook fa-2x fa-fw white" style="margin-top: 10px;" title="Sign in with Facebook"></i>
+                                    </div>
+                                    <div class="login_description">
+                                        Sign In With Facebook
+                                    </div>
+                                </div> </a>
+                                <p></p>
+                                <a href="">
+                                <div class="login_btn" style="background: #44aee5; ">
+                                    <div class="login_icon" style="background: #3fa0d3;">
+                                        <i class="fa fa-twitter fa-2x fa-fw white" style="margin-top: 10px;" title="Sign in with Twitter"></i>
+                                    </div>
+                                    <div class="login_description">
+                                        Sign In With Twitter
+                                    </div>
+                                </div> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 white shieldimage" style="margin: 0px;">
+                        <div class="center">
+                        <h2 class="upper white"> Sign Up With Your Email </h2>
+                        <p></p>
+                        Did you sign up without a social network?
+                        <h3> Sign up Here: </h3>
+                        <form id='casting_login_form' role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="row">
+                                <div class="col-sm-4 control-label">
+                                    Email
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" name="login" t-att-value="login" id="login" class="form-control" required="required" autofocus="autofocus" autocapitalize="off"/>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 control-label">
+                                    Password
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="password" name="password" id="password" class="form-control" required="required" t-att-autofocus="'autofocus' if login else None"/>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <p class="alert alert-danger" t-if="error">
+                                    <t t-esc="error"/>
+                                </p>
+                                <p class="alert alert-success" t-if="message">
+                                    <t t-esc="message"/>
+                                </p>
+
+                                <input type="hidden" name="redirect" t-att-value="redirect"/>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-2 col-sm-offset-4">
+                                        <input class="btn form-submit" id="shield_save" name="commit" value="Sign In" type="submit"/>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <h5 class="yellow"></h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="smallish">
+                                            <p>
+                                            </p>
+                                            <p>
+                                            </p>
+
+                                            Already a member?
+                                            <a href="/web/login">Sign in</a>
                                             <br/>
 
                                             <a href="">Forgot your password?</a>
