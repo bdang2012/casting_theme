@@ -13,31 +13,31 @@
         </template>
 
 
-        <!-- Customize header  -->
-        <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+        <template id="template_casting_login_layout" inherit_id="web.login_layout" name="Template Casting Login Layout Inherit">
 
-            <!-- Assign an id  -->
-            <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
-                <attribute name="id">my_header</attribute>
+            <xpath expr="//t[@t-set='body_classname']" position="replace">
+                <body/>
             </xpath>
 
-            <!-- Add an element after the top menu  -->
-            <!--
-            <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
-                <div class="container">
-                    <div class="alert alert-info mt16" role="alert">
-                        <strong>Welcome</strong> to  Pintura Casting!
-                    </div>
-                </div>
+            <xpath expr="//div[@class='row']" position="attributes">
+                <attribute name="style">height: 100%;</attribute>
             </xpath>
-            -->
+
+
+            <xpath expr="//div[@class='col-md-6 col-md-offset-3 o_database_list']" position="attributes" >
+                <attribute name="class">row</attribute>
+                <attribute name="style">background: #ffea00; height: 100%; margin: 0px;</attribute>
+            </xpath>
+
+            <xpath expr="//div[@class='text-center']" position="replace" />
+            <xpath expr="//div[@class='text-center']" position="replace" />
+
         </template>
 
+        <template id="template_casting_web_login" name="Template Casting Web Login" inherit_id="web.login">
+            <xpath expr="//form" position="replace">
 
-        <template id="template_casting_web_home" inherit_id="website.homepage">
-            <xpath expr="//div[@id='wrap']" position="replace">
-                <div class="row" style="background: #ffea00; height: 100%; margin: 0px;">
-			        <div class="col-md-6 socialimage white" style="margin: 0px;">
+                    <div class="col-md-6 socialimage white" style="margin: 0px;">
                         <div class="center">
                             <h2 class="upper"> One-Click Sign In </h2>
                             Did you create your account with Facebook, Twitter or Google?
@@ -73,77 +73,78 @@
                                 </div> </a>
                             </div>
                         </div>
-			        </div>
-			        <div class="col-md-6 white shieldimage" style="margin: 0px;">
+                    </div>
+                    <div class="col-md-6 white shieldimage" style="margin: 0px;">
                         <div class="center">
-                            <h2 class="upper white"> Sign In With Your Email </h2>
-                            <p></p>
-                            Did you sign up without a social network?
-                            <h3> Sign in Here: </h3>
-                            <form accept-charset="UTF-8" action="" class="new_user" id="new_user" method="post">
-                                <div class="row">
-                                    <div class="col-sm-4 control-label">
-                                        Email
+                        <h2 class="upper white"> Sign In With Your Email </h2>
+                        <p></p>
+                        Did you sign up without a social network?
+                        <h3> Sign in Here: </h3>
+                        <form id='casting_login_form' role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="row">
+                                <div class="col-sm-4 control-label">
+                                    Email
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" name="login" t-att-value="login" id="login" class="form-control" required="required" autofocus="autofocus" autocapitalize="off"/>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 control-label">
+                                    Password
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="password" name="password" id="password" class="form-control" required="required" t-att-autofocus="'autofocus' if login else None"/>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <p class="alert alert-danger" t-if="error">
+                                    <t t-esc="error"/>
+                                </p>
+                                <p class="alert alert-success" t-if="message">
+                                    <t t-esc="message"/>
+                                </p>
+
+                                <input type="hidden" name="redirect" t-att-value="redirect"/>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-2 col-sm-offset-4">
+                                        <input class="btn form-submit" id="shield_save" name="commit" value="Sign In" type="submit"/>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input class="form-control" id="user_email" name="user[email]" type="email"/>
-                                        <p></p>
+                                        <h5 class="yellow"></h5>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-4 control-label">
-                                        Password
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" id="user_password" name="user[password]" type="password"/>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group">
-                                        <div class="col-sm-2 col-sm-offset-4">
-                                            <input class="btn form-submit" id="shield_save" name="commit" value="Sign In" type="submit"/>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <h5 class="yellow"></h5>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="smallish">
-                                                <p>
-                                                </p>
-                                                <p>
-                                                </p>
+                                    <div class="col-sm-12">
+                                        <div class="smallish">
+                                            <p>
+                                            </p>
+                                            <p>
+                                            </p>
 
-                                                Not a member?
-                                                <a href="">Sign up</a>
-                                                <br/>
+                                            Not a member?
+                                            <a href="/web/signup">Sign up</a>
+                                            <br/>
 
-                                                <a href="">Forgot your password?</a>
-                                                <br/>
+                                            <a href="">Forgot your password?</a>
+                                            <br/>
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                        </form>
 
-                        </div>
-			        </div>
-		        </div>
+                    </div>
+                </div>
+
             </xpath>
-            <!--
-            <t t-call="website.layout">
-            <div id="wrap" class="oe_structure oe_empty">
-                Binh: This homepage has been overwritten by an imported module !
-                <p>
-                    <a href="/page/test_module.test_page">Link to page added by imported module</a>
-                </p>
-            </div>
 
-        </t>
-        -->
         </template>
+
     </data>
 </odoo>
