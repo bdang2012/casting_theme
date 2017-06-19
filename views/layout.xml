@@ -13,29 +13,16 @@
         </template>
 
         <template id="template_casting_login_layout" inherit_id="web.login_layout" name="Template Casting Login Layout Inherit">
-
-            <xpath expr="//t[@t-set='body_classname']" position="replace">
-                <body/>
+            <xpath expr="//t[@t-call='web.layout']" position="replace">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure oe_empty" />
+                </t>
             </xpath>
-
-            <xpath expr="//div[@class='row']" position="attributes">
-                <attribute name="style">height: 100%;</attribute>
-            </xpath>
-
-
-            <xpath expr="//div[@class='col-md-6 col-md-offset-3 o_database_list']" position="attributes" >
-                <attribute name="class">row</attribute>
-                <attribute name="style">background: #ffea00; height: 100%; margin: 0px;</attribute>
-            </xpath>
-
-            <xpath expr="//div[@class='text-center']" position="replace" />
-            <xpath expr="//div[@class='text-center']" position="replace" />
-
         </template>
 
         <template id="template_casting_web_login" name="Template Casting Web Login" inherit_id="web.login">
-            <xpath expr="//form" position="replace">
-
+            <xpath expr="//t[@t-call='web.login_layout']" position="replace">
+                <t t-call="website.layout">
                     <div class="col-md-6 socialimage white" style="margin: 0px;">
                         <div class="center">
                             <h2 class="upper"> One-Click Sign In </h2>
@@ -73,7 +60,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 white shieldimage" style="margin: 0px;">
+                <div class="col-md-6 white shieldimage" style="margin: 0px;">
                         <div class="center">
                         <h2 class="upper white"> Sign In With Your Email </h2>
                         <p></p>
@@ -140,18 +127,13 @@
 
                     </div>
                 </div>
-
+                </t>
             </xpath>
-
-        </template>
-
-        <template id="template_casting_web_home" inherit_id="website.homepage">
-
         </template>
 
         <template id="template_casting_web_signup" name="Template Casting Web Signup" inherit_id="auth_signup.signup">
-            <xpath expr="//form" position="replace">
-
+            <xpath expr="//t[@t-call='web.login_layout']" position="replace">
+                <t t-call="website.layout">
                     <div class="col-md-6 socialimage white" style="margin: 0px;">
                         <div class="center">
                             <h2 class="upper"> One-Click Sign In </h2>
@@ -274,7 +256,9 @@
                         </form>
 
                     </div>
-                </div>
+
+                    </div>
+                </t>
             </xpath>
         </template>
 
