@@ -12,6 +12,29 @@
             </xpath>
         </template>
 
+        <template id="template_casting_website_layout" inherit_id="website.layout" name="Template Casting Website Layout Inherit">
+            <xpath expr="//footer" position="replace">
+                <div class="footer navbar-fixed-bottom bigonly">
+                <div class="menu">
+                    <a href="" target="_blank">Support</a>
+                    <a href="">About</a>
+                    <a href="">Press</a>
+                    <a class="bigonly" href="">Terms of Use</a>
+                    <a class="bigonly" href="">Privacy Policy</a>
+                    <a class="bigonly" href="">Newsletter</a>
+                    <a class="bigonly" href=""> <icon class="fa fa-facebook-square fa-2x fa-fw" title="Follow us on Facebook"></icon> </a>
+                    <a class="bigonly" href=""> <icon class="fa fa-twitter-square fa-2x fa-fw" title="Follow us on Twitter"></icon> </a>
+                    <a class="bigonly" href=""> <icon class="fa fa-google-plus-square fa-2x fa-fw" title="Follow us on Google +"></icon> </a>
+                    <br/>
+                    <div class="copyright">
+                        © 2017 Bovedalabs, Inc.  ALL RIGHTS RESERVED
+                    </div>
+                </div>
+		</div>
+            </xpath>
+        </template>
+
+
         <template id="template_casting_login_layout" inherit_id="web.login_layout" name="Template Casting Login Layout Inherit">
             <xpath expr="//t[@t-call='web.layout']" position="replace">
                 <t t-call="website.layout">
@@ -60,7 +83,7 @@
                             </div>
                         </div>
                     </div>
-                <div class="col-md-6 white shieldimage" style="margin: 0px;">
+                    <div class="col-md-6 white shieldimage" style="margin: 0px;">
                         <div class="center">
                         <h2 class="upper white"> Sign In With Your Email </h2>
                         <p></p>
